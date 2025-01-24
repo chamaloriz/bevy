@@ -325,7 +325,7 @@ fn setup(
         },
     ));
 
-    // example instructions
+    // Example instructions
     commands.spawn((
         Text::default(),
         Node {

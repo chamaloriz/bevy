@@ -9,13 +9,13 @@ fn main() {
         .run();
 }
 
-/// set up a simple 3D scene
+/// Set up a simple 3D scene
 fn setup(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
-    // camera
+    // Camera
     commands.spawn((
         Camera3d::default(),
         Projection::from(OrthographicProjection {
@@ -28,12 +28,12 @@ fn setup(
         Transform::from_xyz(5.0, 5.0, 5.0).looking_at(Vec3::ZERO, Vec3::Y),
     ));
 
-    // plane
+    // Plane
     commands.spawn((
         Mesh3d(meshes.add(Plane3d::default().mesh().size(5.0, 5.0))),
         MeshMaterial3d(materials.add(Color::srgb(0.3, 0.5, 0.3))),
     ));
-    // cubes
+    // Cubes
     commands.spawn((
         Mesh3d(meshes.add(Cuboid::default())),
         MeshMaterial3d(materials.add(Color::srgb(0.8, 0.7, 0.6))),
@@ -54,6 +54,6 @@ fn setup(
         MeshMaterial3d(materials.add(Color::srgb(0.8, 0.7, 0.6))),
         Transform::from_xyz(-1.5, 0.5, -1.5),
     ));
-    // light
+    // Light
     commands.spawn((PointLight::default(), Transform::from_xyz(3.0, 8.0, 5.0)));
 }

@@ -43,11 +43,11 @@ fn setup(
         Transform::from_xyz(-2.0, 2.5, 5.0).looking_at(Vec3::ZERO, Vec3::Y),
     ));
 
-    // camera
+    // Camera
     commands.spawn((
         Camera3d::default(),
         Camera {
-            // renders after / on top of the main camera
+            // Renders after / on top of the main camera
             order: 1,
             clear_color: ClearColorConfig::None,
             ..default()

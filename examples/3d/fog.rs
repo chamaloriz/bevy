@@ -57,7 +57,7 @@ fn setup_pyramid_scene(
         ..default()
     });
 
-    // pillars
+    // Pillars
     for (x, z) in &[(-1.5, -1.5), (1.5, -1.5), (1.5, 1.5), (-1.5, 1.5)] {
         commands.spawn((
             Mesh3d(meshes.add(Cuboid::new(1.0, 3.0, 1.0))),
@@ -66,7 +66,7 @@ fn setup_pyramid_scene(
         ));
     }
 
-    // orb
+    // Orb
     commands.spawn((
         Mesh3d(meshes.add(Sphere::default())),
         MeshMaterial3d(materials.add(StandardMaterial {
@@ -82,7 +82,7 @@ fn setup_pyramid_scene(
         NotShadowReceiver,
     ));
 
-    // steps
+    // Steps
     for i in 0..50 {
         let half_size = i as f32 / 2.0 + 3.0;
         let y = -i as f32 / 2.0;
@@ -93,7 +93,7 @@ fn setup_pyramid_scene(
         ));
     }
 
-    // sky
+    // Sky
     commands.spawn((
         Mesh3d(meshes.add(Cuboid::new(2.0, 1.0, 1.0))),
         MeshMaterial3d(materials.add(StandardMaterial {
@@ -105,7 +105,7 @@ fn setup_pyramid_scene(
         Transform::from_scale(Vec3::splat(1_000_000.0)),
     ));
 
-    // light
+    // Light
     commands.spawn((
         PointLight {
             shadows_enabled: true,

@@ -11,18 +11,18 @@ fn main() {
         .run();
 }
 
-/// this component indicates what entities should rotate
+/// This component indicates what entities should rotate
 #[derive(Component)]
 struct Rotator;
 
-/// rotates the parent, which will result in the child also rotating
+/// Rotates the parent, which will result in the child also rotating
 fn rotator_system(time: Res<Time>, mut query: Query<&mut Transform, With<Rotator>>) {
     for mut transform in &mut query {
         transform.rotate_x(3.0 * time.delta_secs());
     }
 }
 
-/// set up a simple scene with a "parent" cube and a "child" cube
+/// Set up a simple scene with a "parent" cube and a "child" cube
 fn setup(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
@@ -34,7 +34,7 @@ fn setup(
         ..default()
     });
 
-    // parent cube
+    // Parent cube
     commands
         .spawn((
             Mesh3d(cube_handle.clone()),
@@ -50,9 +50,9 @@ fn setup(
                 Transform::from_xyz(0.0, 0.0, 3.0),
             ));
         });
-    // light
+    // Light
     commands.spawn((PointLight::default(), Transform::from_xyz(4.0, 5.0, -4.0)));
-    // camera
+    // Camera
     commands.spawn((
         Camera3d::default(),
         Transform::from_xyz(5.0, 10.0, 10.0).looking_at(Vec3::ZERO, Vec3::Y),

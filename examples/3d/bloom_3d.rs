@@ -83,7 +83,7 @@ fn setup_scene(
         }
     }
 
-    // example instructions
+    // Example instructions
     commands.spawn((
         Text::default(),
         Node {

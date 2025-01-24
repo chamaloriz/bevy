@@ -27,12 +27,12 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
         ..default()
     });
 
-    // a barebones scene containing one of each gltf_extra type
+    // A barebones scene containing one of each gltf_extra type
     commands.spawn(SceneRoot(asset_server.load(
         GltfAssetLabel::Scene(0).from_asset("models/extras/gltf_extras.glb"),
     )));
 
-    // a place to display the extras on screen
+    // A place to display the extras on screen
     commands.spawn((
         Text::default(),
         TextFont {

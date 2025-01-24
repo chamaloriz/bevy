@@ -218,7 +218,7 @@ fn setup(
         CameraController,
     ));
 
-    // light
+    // Light
     commands
         .spawn((
             PointLight {
@@ -237,7 +237,7 @@ fn setup(
     commands.spawn((
         Mesh3d(meshes.add(Plane3d::default().mesh().size(10.0, 10.0))),
         MeshMaterial3d(materials.add(StandardMaterial {
-            // standard material derived from dark green, but
+            // Standard material derived from dark green, but
             // with roughness and reflectance set.
             perceptual_roughness: 0.45,
             reflectance: 0.18,
@@ -264,7 +264,7 @@ fn setup(
     commands.spawn((
         Mesh3d(
             meshes.add(
-                // NOTE: for normal maps and depth maps to work, the mesh
+                // NOTE: For normal maps and depth maps to work, the mesh
                 // needs tangents generated.
                 Mesh::from(Cuboid::default())
                     .with_generated_tangents()
@@ -294,7 +294,7 @@ fn setup(
     commands.spawn(background_cube_bundle(Vec3::new(0., 0., 45.)));
     commands.spawn(background_cube_bundle(Vec3::new(0., 0., -45.)));
 
-    // example instructions
+    // Example instructions
     commands
         .spawn((
             Text::default(),

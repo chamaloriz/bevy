@@ -14,14 +14,14 @@ fn main() {
         .run();
 }
 
-/// set up a simple 3D scene
+/// Set up a simple 3D scene
 fn setup(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
-    // plane
+    // Plane
     commands.spawn((
         Mesh3d(meshes.add(Plane3d::default().mesh().size(100.0, 100.0))),
         MeshMaterial3d(materials.add(Color::srgb(0.3, 0.5, 0.3))),

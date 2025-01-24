@@ -121,7 +121,7 @@ fn setup(
         Transform::from_xyz(8.0, 16.0, 8.0),
     ));
 
-    // ground plane
+    // Ground plane
     commands.spawn((
         Mesh3d(meshes.add(Plane3d::default().mesh().size(50.0, 50.0).subdivisions(10))),
         MeshMaterial3d(materials.add(Color::from(SILVER))),

@@ -18,13 +18,13 @@ fn setup(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
-    // camera
+    // Camera
     commands.spawn((
         Camera3d::default(),
         Transform::from_xyz(0.2, 1.5, 2.5).looking_at(Vec3::ZERO, Vec3::Y),
     ));
 
-    // plane
+    // Plane
     commands.spawn((
         Mesh3d(meshes.add(Plane3d::default().mesh().size(100.0, 100.0))),
         MeshMaterial3d(materials.add(StandardMaterial {
@@ -45,7 +45,7 @@ fn setup(
         let percent = i as f32 / COUNT as f32;
         let radius = radius_range.start + percent * radius_len;
 
-        // sphere light
+        // Sphere light
         commands
             .spawn((
                 Mesh3d(mesh.clone()),

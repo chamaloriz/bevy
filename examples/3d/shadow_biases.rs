@@ -27,7 +27,7 @@ fn main() {
 #[derive(Component)]
 struct Lights;
 
-/// set up a 3D scene to test shadow biases and perspective projections
+/// Set up a 3D scene to test shadow biases and perspective projections
 fn setup(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
@@ -65,7 +65,7 @@ fn setup(
             });
         });
 
-    // camera
+    // Camera
     commands.spawn((
         Camera3d::default(),
         Transform::from_xyz(-1.0, 1.0, 1.0).looking_at(Vec3::new(-1.0, 1.0, 0.0), Vec3::Y),
@@ -89,7 +89,7 @@ fn setup(
         ));
     }
 
-    // ground plane
+    // Ground plane
     let plane_size = 2.0 * spawn_plane_depth;
     commands.spawn((
         Mesh3d(meshes.add(Plane3d::default().mesh().size(plane_size, plane_size))),

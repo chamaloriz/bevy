@@ -33,20 +33,20 @@ fn main() {
 #[derive(Component)]
 struct Movable;
 
-/// set up a simple 3D scene
+/// Set up a simple 3D scene
 fn setup(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
-    // ground plane
+    // Ground plane
     commands.spawn((
         Mesh3d(meshes.add(Plane3d::default().mesh().size(100.0, 100.0))),
         MeshMaterial3d(materials.add(Color::WHITE)),
         Movable,
     ));
 
-    // cubes
+    // Cubes
 
     // We're seeding the PRNG here to make this example deterministic for testing purposes.
     // This isn't strictly required in practical use unless you need your app to be deterministic.
@@ -116,7 +116,7 @@ fn setup(
         }
     }
 
-    // camera
+    // Camera
     commands.spawn((
         Camera3d::default(),
         Camera {

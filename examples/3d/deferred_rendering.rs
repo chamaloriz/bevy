@@ -173,7 +173,7 @@ fn setup(
         ));
     }
 
-    // sky
+    // Sky
     commands.spawn((
         Mesh3d(meshes.add(Cuboid::new(2.0, 1.0, 1.0))),
         MeshMaterial3d(materials.add(StandardMaterial {

@@ -24,7 +24,7 @@ fn find_top_material_and_mesh(
     )>,
 ) {
     for (mat_handle, mesh_handle, name) in mat_query.iter() {
-        // locate a material by material name
+        // Locate a material by material name
         if name.0 == "Top" {
             if let Some(material) = materials.get_mut(mat_handle) {
                 if let Color::Hsla(ref mut hsla) = material.base_color {

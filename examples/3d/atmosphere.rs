@@ -84,7 +84,7 @@ fn setup_terrain_scene(
 
     let sphere_mesh = meshes.add(Mesh::from(Sphere { radius: 1.0 }));
 
-    // light probe spheres
+    // Light probe spheres
     commands.spawn((
         Mesh3d(sphere_mesh.clone()),
         MeshMaterial3d(materials.add(StandardMaterial {

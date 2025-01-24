@@ -54,20 +54,20 @@ fn setup(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
-    // plane
+    // Plane
     commands.spawn((
         Mesh3d(meshes.add(Plane3d::default().mesh().size(20., 20.))),
         MeshMaterial3d(materials.add(Color::srgb(0.3, 0.5, 0.3))),
         Ground,
     ));
 
-    // light
+    // Light
     commands.spawn((
         DirectionalLight::default(),
         Transform::from_translation(Vec3::ONE).looking_at(Vec3::ZERO, Vec3::Y),
     ));
 
-    // camera
+    // Camera
     commands.spawn((
         Camera3d::default(),
         Transform::from_xyz(15.0, 5.0, 15.0).looking_at(Vec3::ZERO, Vec3::Y),

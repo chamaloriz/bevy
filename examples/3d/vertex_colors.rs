@@ -9,18 +9,18 @@ fn main() {
         .run();
 }
 
-/// set up a simple 3D scene
+/// Set up a simple 3D scene
 fn setup(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
-    // plane
+    // Plane
     commands.spawn((
         Mesh3d(meshes.add(Plane3d::default().mesh().size(5.0, 5.0))),
         MeshMaterial3d(materials.add(Color::srgb(0.3, 0.5, 0.3))),
     ));
-    // cube
+    // Cube
     // Assign vertex colors based on vertex positions
     let mut colorful_cube = Mesh::from(Cuboid::default());
     if let Some(VertexAttributeValues::Float32x3(positions)) =

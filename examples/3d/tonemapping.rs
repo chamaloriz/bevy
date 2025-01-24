@@ -56,7 +56,7 @@ fn setup(
     asset_server: Res<AssetServer>,
     camera_transform: Res<CameraTransform>,
 ) {
-    // camera
+    // Camera
     commands.spawn((
         Camera3d::default(),
         Camera {
@@ -80,7 +80,7 @@ fn setup(
         },
     ));
 
-    // ui
+    // UI
     commands.spawn((
         Text::default(),
         Node {
@@ -111,7 +111,7 @@ fn setup_basic_scene(mut commands: Commands, asset_server: Res<AssetServer>) {
         SceneNumber(1),
     ));
 
-    // light
+    // Light
     commands.spawn((
         DirectionalLight {
             illuminance: 15_000.,

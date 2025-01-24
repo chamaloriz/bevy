@@ -22,7 +22,7 @@ fn main() {
         .run();
 }
 
-/// set up a 3D scene to test shadow biases and perspective projections
+/// Set up a 3D scene to test shadow biases and perspective projections
 fn setup(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
@@ -39,14 +39,14 @@ fn setup(
     });
     let sphere_handle = meshes.add(Sphere::new(sphere_radius));
 
-    // sphere - initially a caster
+    // Sphere - initially a caster
     commands.spawn((
         Mesh3d(sphere_handle.clone()),
         MeshMaterial3d(materials.add(Color::from(RED))),
         Transform::from_xyz(-1.0, spawn_height, 0.0),
     ));
 
-    // sphere - initially not a caster
+    // Sphere - initially not a caster
     commands.spawn((
         Mesh3d(sphere_handle),
         MeshMaterial3d(materials.add(Color::from(BLUE))),
@@ -54,7 +54,7 @@ fn setup(
         NotShadowCaster,
     ));
 
-    // floating plane - initially not a shadow receiver and not a caster
+    // Floating plane - initially not a shadow receiver and not a caster
     commands.spawn((
         Mesh3d(meshes.add(Plane3d::default().mesh().size(20.0, 20.0))),
         MeshMaterial3d(materials.add(Color::from(LIME))),
@@ -63,7 +63,7 @@ fn setup(
         NotShadowReceiver,
     ));
 
-    // lower ground plane - initially a shadow receiver
+    // Lower ground plane - initially a shadow receiver
     commands.spawn((
         Mesh3d(meshes.add(Plane3d::default().mesh().size(20.0, 20.0))),
         MeshMaterial3d(white_handle),
@@ -97,7 +97,7 @@ fn setup(
         .build(),
     ));
 
-    // camera
+    // Camera
     commands.spawn((
         Camera3d::default(),
         Transform::from_xyz(-5.0, 5.0, 5.0).looking_at(Vec3::new(-1.0, 1.0, 0.0), Vec3::Y),

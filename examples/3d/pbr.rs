@@ -11,7 +11,7 @@ fn main() {
         .run();
 }
 
-/// set up a simple 3D scene
+/// Set up a simple 3D scene
 fn setup(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
@@ -19,7 +19,7 @@ fn setup(
     asset_server: Res<AssetServer>,
 ) {
     let sphere_mesh = meshes.add(Sphere::new(0.45));
-    // add entities to the world
+    // Add entities to the world
     for y in -2..=2 {
         for x in -5..=5 {
             let x01 = (x + 5) as f32 / 10.0;
@@ -38,7 +38,7 @@ fn setup(
             ));
         }
     }
-    // unlit sphere
+    // Unlit sphere
     commands.spawn((
         Mesh3d(sphere_mesh),
         MeshMaterial3d(materials.add(StandardMaterial {
@@ -58,7 +58,7 @@ fn setup(
         Transform::from_xyz(50.0, 50.0, 50.0).looking_at(Vec3::ZERO, Vec3::Y),
     ));
 
-    // labels
+    // Labels
     commands.spawn((
         Text::new("Perceptual Roughness"),
         TextFont {
@@ -106,7 +106,7 @@ fn setup(
         EnvironmentMapLabel,
     ));
 
-    // camera
+    // Camera
     commands.spawn((
         Camera3d::default(),
         Transform::from_xyz(0.0, 0.0, 8.0).looking_at(Vec3::default(), Vec3::Y),

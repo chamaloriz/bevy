@@ -18,13 +18,13 @@ fn main() {
         .run();
 }
 
-/// set up a simple 3D scene
+/// Set up a simple 3D scene
 fn setup(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
-    // camera
+    // Camera
     commands.spawn((
         Camera3d::default(),
         Transform::from_xyz(0.0, 0.0, 10.0).looking_at(Vec3::ZERO, Vec3::Y),
@@ -35,7 +35,7 @@ fn setup(
         Msaa::Off,
     ));
 
-    // light
+    // Light
     commands.spawn((
         PointLight {
             shadows_enabled: false,
@@ -45,7 +45,7 @@ fn setup(
         RenderLayers::layer(1),
     ));
 
-    // spawn help text
+    // Spawn help text
     commands
         .spawn((
             Text::default(),
@@ -63,7 +63,7 @@ fn setup(
             p.spawn(TextSpan::new("\nPress C to cycle test scenes"));
         });
 
-    // spawn default scene
+    // Spawn default scene
     spawn_spheres(&mut commands, &mut meshes, &mut materials);
 }
 
@@ -102,13 +102,13 @@ fn cycle_scenes(
     mut scene_id: Local<usize>,
 ) {
     if keyboard_input.just_pressed(KeyCode::KeyC) {
-        // despawn current scene
+        // Despawn current scene
         for e in &q {
             commands.entity(e).despawn();
         }
-        // increment scene_id
+        // Increment scene_id
         *scene_id = (*scene_id + 1) % 2;
-        // spawn next scene
+        // Spawn next scene
         match *scene_id {
             0 => spawn_spheres(&mut commands, &mut meshes, &mut materials),
             1 => spawn_occlusion_test(&mut commands, &mut meshes, &mut materials),
@@ -183,7 +183,7 @@ fn spawn_occlusion_test(
 
     let render_layers = RenderLayers::layer(1);
 
-    // front
+    // Front
     let x = -2.5;
     commands.spawn((
         Mesh3d(cube_handle.clone()),
@@ -202,7 +202,7 @@ fn spawn_occlusion_test(
         render_layers.clone(),
     ));
 
-    // intersection
+    // Intersection
     commands.spawn((
         Mesh3d(cube_handle.clone()),
         MeshMaterial3d(cube_material.clone()),
@@ -220,7 +220,7 @@ fn spawn_occlusion_test(
         render_layers.clone(),
     ));
 
-    // back
+    // Back
     let x = 2.5;
     commands.spawn((
         Mesh3d(cube_handle.clone()),

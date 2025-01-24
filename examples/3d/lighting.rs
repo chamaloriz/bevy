@@ -30,7 +30,7 @@ struct Parameters(PhysicalCameraParameters);
 #[derive(Component)]
 struct Movable;
 
-/// set up a simple 3D scene
+/// Set up a simple 3D scene
 fn setup(
     parameters: Res<Parameters>,
     mut commands: Commands,
@@ -38,7 +38,7 @@ fn setup(
     mut materials: ResMut<Assets<StandardMaterial>>,
     asset_server: Res<AssetServer>,
 ) {
-    // ground plane
+    // Ground plane
     commands.spawn((
         Mesh3d(meshes.add(Plane3d::default().mesh().size(10.0, 10.0))),
         MeshMaterial3d(materials.add(StandardMaterial {
@@ -48,7 +48,7 @@ fn setup(
         })),
     ));
 
-    // left wall
+    // Left wall
     let mut transform = Transform::from_xyz(2.5, 2.5, 0.0);
     transform.rotate_z(PI / 2.);
     commands.spawn((
@@ -60,7 +60,7 @@ fn setup(
         })),
         transform,
     ));
-    // back (right) wall
+    // Back (right) wall
     let mut transform = Transform::from_xyz(0.0, 2.5, -2.5);
     transform.rotate_x(PI / 2.);
     commands.spawn((
@@ -89,7 +89,7 @@ fn setup(
         Movable,
     ));
 
-    // cube
+    // Cube
     commands.spawn((
         Mesh3d(meshes.add(Cuboid::default())),
         MeshMaterial3d(materials.add(StandardMaterial {
@@ -99,7 +99,7 @@ fn setup(
         Transform::from_xyz(0.0, 0.5, 0.0),
         Movable,
     ));
-    // sphere
+    // Sphere
     commands.spawn((
         Mesh3d(meshes.add(Sphere::new(0.5).mesh().uv(32, 18))),
         MeshMaterial3d(materials.add(StandardMaterial {
@@ -110,14 +110,14 @@ fn setup(
         Movable,
     ));
 
-    // ambient light
+    // Ambient light
     commands.insert_resource(AmbientLight {
         color: ORANGE_RED.into(),
         brightness: 0.02,
         ..default()
     });
 
-    // red point light
+    // Red point light
     commands
         .spawn((
             PointLight {
@@ -139,7 +139,7 @@ fn setup(
             ));
         });
 
-    // green spot light
+    // Green spot light
     commands
         .spawn((
             SpotLight {
@@ -162,7 +162,7 @@ fn setup(
             Transform::from_rotation(Quat::from_rotation_x(PI / 2.0)),
         ));
 
-    // blue point light
+    // Blue point light
     commands
         .spawn((
             PointLight {
@@ -184,7 +184,7 @@ fn setup(
             ));
         });
 
-    // directional 'sun' light
+    // Directional 'sun' light
     commands.spawn((
         DirectionalLight {
             illuminance: light_consts::lux::OVERCAST_DAY,
@@ -207,7 +207,7 @@ fn setup(
         .build(),
     ));
 
-    // example instructions
+    // Example instructions
 
     commands
         .spawn((
@@ -242,7 +242,7 @@ fn setup(
             p.spawn(TextSpan::new("R - Reset exposure"));
         });
 
-    // camera
+    // Camera
     commands.spawn((
         Camera3d::default(),
         Transform::from_xyz(-2.0, 2.5, 5.0).looking_at(Vec3::ZERO, Vec3::Y),
